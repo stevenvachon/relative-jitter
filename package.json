@@ -1,0 +1,34 @@
+{
+  "name": "relative-jitter",
+  "description": "Apply bounded, relative jitter to a numeric value; useful for natural timing and motion variation.",
+  "version": "1.0.0",
+  "author": "Steven Vachon <contact@svachon.com> (https://svachon.com)",
+  "repository": "github:stevenvachon/relative-jitter",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./index.js",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.16",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "scripts": {
+    "build": "npm run build:lint && npm run build:compile",
+    "build:compile": "rm -f *.d.ts && tsc",
+    "build:lint": "prettier --check '*.{js,json,md}' '!coverage/**/*'",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "npm run test:watch -- --reporter=verbose --run",
+    "test:watch": "vitest dev --coverage --coverage.reporter=html --coverage.reporter=lcov --coverage.reporter=text"
+  },
+  "files": [
+    "index.d.ts",
+    "index.js"
+  ],
+  "keywords": [
+    "animation",
+    "jitter",
+    "modifier",
+    "timing"
+  ]
+}
